@@ -1,2 +1,2 @@
 # BiDS-Tool
-Biomass Decision Support (BiDS) Tool will provide scientifically rigorous, economically grounded, and geospatially tailored evaluation of waste biomass utilization from forest management practices
+Biomass Decision Support (BiDS) Tool will provide a scientifically-rigorous, economically-grounded, and geospatially-tailored evaluation waste biomass (generated via forestry management) utilization pathways.

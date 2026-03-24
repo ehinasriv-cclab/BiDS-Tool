@@ -4,11 +4,18 @@ Created on Mon March 23
 @author: ehinasriv
 """
 
-import pandas as pd 
-import numpy as np
+from core.material import Material
 
-test= np.array([1,2,3])
-df= pd.DataFrame({"biomass":[100,200,300]})
+def create_woody_biomass(amount):
+    return Material(
+        name="woody_biomass",
+        amount=amount,
+        properties={
+            "moisture_content": 0.30,
+            "carbon_fraction": 0.50,
+            "ash_content": 0.02,
+            "HHV": 18
+        }
+    )
 
-print(test)
-print(df)
+print("this is me trying to print the parameters")

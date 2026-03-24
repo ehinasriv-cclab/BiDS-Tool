@@ -1,16 +1,25 @@
 from core.process import Process
+from core.material import Material
 
 class Pyrolysis(Process):
     def run(self, inputs):
-        wood = inputs.get("dry_wood", 0)
+        wood = inputs["woody_biomass"]
 
-        biochar = wood * self.parameters.get("biochar_yield", 0.3)
+        carbon = wood.amount * (1 - wood.get("moisture_content")) * wood.get("carbon_fraction")
+
+        biochar_yield = self.parameters.get("biochar_yield", 0.3)
+
+        biochar = Material(
+            "biochar",
+            wood.amount * biochar_yield,
+            properties={
+                "carbon_fraction": 0.75
+            }
+        )
 
         return {
-            "outputs": {
-                "biochar": biochar
-            },
+            "outputs": {"biochar": biochar},
             "emissions": {
-                "CO2": wood * 0.2
+                "CO2": carbon * 0.5
             }
         }
